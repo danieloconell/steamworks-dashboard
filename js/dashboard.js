@@ -11,13 +11,15 @@ var sports_music = document.createElement('audio');
 sports_music.setAttribute('src', 'music/Sports.ogg');
 
 $(document).on("keypress", function (e) {
-    if (e.key === "]") {
-        removeForm(true);
+    if (e.which === 96 && e.target === $("#447bfyd7")[0]) {
+        removeForm(true);a();
     }
 });
 
 $(document).ready(function () {
     sports_music.play();
+
+    $("#compass").attr("src", "img/robotred.png");
 
     // sets a function that will be called when any NetworkTables key/value changes
     NetworkTables.addGlobalListener(onValueChanged, true);
@@ -190,4 +192,9 @@ function timer() {
             $("#cycleTimer").text(timerFrom);
         }
     }
+}
+
+function a() {
+    sports_music.currentTime = 0;
+    sports_music.play();
 }
