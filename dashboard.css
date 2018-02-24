@@ -82,24 +82,28 @@
     font-size: 300%;
     float: left;
     vertical-align: text-top;
-    margin: 9rem auto;
+    margin-top: 8rem;
     width: 50%;
 }
 
 #compass-container {
     border-top: medium solid var(--accent-colour);
-    padding: 1em;
+    /* padding: 1em; */
 }
 
 #compass {
-    height: 18em;
+    height: 11em;
     display: block;
-    margin: auto;
+    margin: 2em auto;
 }
 
 #robot-info > label,
 #powerup-field > label {
     display: block;
+}
+
+#powerup-field {
+	float: right;
 }
 
 .square {
@@ -131,8 +135,6 @@
 
 #cube-light {
     --light-colour: #22f92a;
-
-    padding: 2em;
 }
 
 #cube-indicator,
