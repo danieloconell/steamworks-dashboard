@@ -17,7 +17,7 @@ $(function () {
     NetworkTables.addKeyListener("/robot/mode", robotModeCallback, true);
     NetworkTables.addKeyListener("/components/intake_automation/state/current_state", intakeStateCallback, true);
     NetworkTables.addKeyListener("/components/intake/is_cube_contained", (k, v) => cubeContained(v), true);
-    
+
     NetworkTables.addKeyListener("/components/intake/arms_out", (k, v) => armsOut(v), true);
     NetworkTables.addKeyListener("/components/intake/clamp_pos", (k, v) => clampPos(v), true);
     NetworkTables.addKeyListener("/components/intake/kicker_pos", (k, v) => kickerPos(v), true);
@@ -26,7 +26,8 @@ $(function () {
     NetworkTables.addKeyListener("/FMSInfo/GameSpecificMessage", (k, v) => setMapLocations(v), true);
     NetworkTables.addKeyListener("/FMSInfo/IsRedAlliance", allianceCallback, true);
 
-    attachRobotConnectionIndicator("#connection", 35);
+    // attachRobotConnectionIndicator("#connection", 35);
+    NetworkTables.addRobotConnectionListener(onRobotConnection, true);
 
     // hook up our SendableChoosers to combo boxes
     attachSelectToSendableChooser("#auto-select", "Autonomous Mode");
@@ -52,7 +53,6 @@ $(function () {
         container: '#camera',
         port: 1181,
         image_url: '/stream.mjpg',
-        host: "10.47.74.77",
         data_url: '/settings.json',
         attrs: {
             width: 583,
@@ -163,5 +163,20 @@ function timer() {
         } else {
             $("#cycleTimer").text(timerFrom);
         }
+    }
+}
+
+function onRobotConnection(connected) {
+    if (connected) {
+        $("#connection").text("Connected");
+        $("#connection").css({
+            "color": "lime"
+        });
+    } else {
+        $("#connection").text("Disconnected");
+        $("#connection").css({
+            "color": "red"
+        });
+
     }
 }

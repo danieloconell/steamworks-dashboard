@@ -53,7 +53,7 @@
 #checklist {
     background-color: var(--bg-colour);
     color: white;
-    font-size: 1.7em;
+    font-size: 2em;
     height: 100%;
     width: 100%;
     padding: 1em 4em;
@@ -82,7 +82,7 @@
     font-size: 300%;
     float: left;
     vertical-align: text-top;
-    margin: 7rem auto 0 auto;
+    margin: 5.5rem auto 0 auto;
     width: 50%;
 }
 
@@ -164,5 +164,8 @@
 
 #connection {
     vertical-align: middle;
-    margin-left: 3em;
+    margin-left: 2em;
+    display: inline-block;
+    font-size: 32px;
+    font-weight:bold;
 }
